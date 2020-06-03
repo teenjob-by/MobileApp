@@ -1,24 +1,23 @@
 import React from 'react';
-import {View, StyleSheet, TouchableOpacity, Image} from 'react-native';
+import { View, StyleSheet, TouchableOpacity, Image } from 'react-native';
 
-import Title from '../../../../Components/Title';
-import back from '../../../../assets/Back.png';
-import MainButton from '../../../../Components/MainButton';
+import Title from 'components/Title';
+import back from 'assets/Back.png';
+import MainButton from 'components/MainButton';
+import { colors } from 'common/theme/constants';
 
-const IntermediateScreen = ({navigation}) => {
+const IntermediateScreen = ({ navigation }) => {
   return (
     <View style={styles.wrapper}>
       <View style={styles.container}>
-        <TouchableOpacity
-          style={styles.arrowBack}
-          onPress={() => navigation.goBack()}>
+        <TouchableOpacity style={styles.arrowBack} onPress={() => navigation.goBack()}>
           <Image source={back} />
         </TouchableOpacity>
-        <Title incomeStyle={{alignSelf: 'center'}} />
+        <Title incomeStyle={styles.title} />
       </View>
-      <View>
-        <MainButton title={'Я работодатель'} />
-        <MainButton title={'Я ищу работу'} />
+      <View style={styles.buttonContainer}>
+        <MainButton incomeStyle={styles.button} title={'Я работодатель'} />
+        <MainButton incomeStyle={styles.button} title={'Я ищу работу'} />
       </View>
       <View />
     </View>
@@ -41,5 +40,14 @@ const styles = StyleSheet.create({
   arrowBack: {
     alignSelf: 'flex-start',
     marginLeft: 35,
+    padding: 15,
+  },
+  title: {
+    marginTop: 50,
+    alignSelf: 'center',
+    color: colors.navy,
+  },
+  button: {
+    marginBottom: 10,
   },
 });

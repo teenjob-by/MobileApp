@@ -1,9 +1,11 @@
 import React from 'react';
-import {TouchableOpacity, Text, StyleSheet} from 'react-native';
+import { TouchableOpacity, Text, StyleSheet } from 'react-native';
 
-const MainButton = ({title, handlePress}) => {
+import { colors } from 'common/theme/constants';
+
+const MainButton = ({ title, handlePress, incomeStyle }) => {
   return (
-    <TouchableOpacity onPress={handlePress} style={styles.button}>
+    <TouchableOpacity onPress={handlePress} style={[styles.button, incomeStyle]}>
       <Text style={styles.text}>{title}</Text>
     </TouchableOpacity>
   );
@@ -11,14 +13,13 @@ const MainButton = ({title, handlePress}) => {
 const styles = StyleSheet.create({
   button: {
     width: 300,
-    height: 50,
-    backgroundColor: '#4261BC',
+    height: 40,
+    backgroundColor: colors.mainYellow,
     justifyContent: 'center',
     borderRadius: 6,
-    marginBottom: 20,
   },
   text: {
-    color: '#fff',
+    color: colors.navy,
     alignSelf: 'center',
     fontWeight: 'bold',
   },
