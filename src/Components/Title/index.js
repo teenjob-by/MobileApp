@@ -1,12 +1,12 @@
 import React from 'react';
-import {View, Text, StyleSheet} from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
 
-const Title = ({incomeStyle}) => {
+const Title = ({ incomeStyle }) => {
   const styles = StyleSheet.create({
     title: {
       fontSize: 72,
       fontWeight: 'bold',
-      color: '#4261BC',
+      color: '#fff',
       ...incomeStyle,
     },
   });
