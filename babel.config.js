@@ -14,6 +14,7 @@ module.exports = {
           components: './src/components',
           navigation: './src/navigation',
           services: './src/services',
+          store: './src/store',
           __mocks__: './__mocks__',
         },
       },

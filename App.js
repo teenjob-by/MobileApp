@@ -1,22 +1,24 @@
 import React from 'react';
+import { Provider } from 'react-redux';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
 import EntryScreen from 'features/entry/screens/EntryScreen';
 import IntermediateScreen from 'features/entry/screens/IntermediateScreen';
+import { store } from 'store';
 
 const Stack = createStackNavigator();
 
 const App = () => {
   return (
-    <>
+    <Provider store={store}>
       <NavigationContainer>
         <Stack.Navigator headerMode={'none'}>
-          <Stack.Screen name='EntryScreen' component={EntryScreen} />
-          <Stack.Screen name='IntermediateScreen' component={IntermediateScreen} />
+          <Stack.Screen name='ENTRY_SCREEN' component={EntryScreen} />
+          <Stack.Screen name='INTERMEDIATE_SCREEN' component={IntermediateScreen} />
         </Stack.Navigator>
       </NavigationContainer>
-    </>
+    </Provider>
   );
 };
 

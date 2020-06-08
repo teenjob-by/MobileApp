@@ -1,10 +1,10 @@
 import React from 'react';
-import { View, StyleSheet, TouchableOpacity, Image } from 'react-native';
+import { View, TouchableOpacity, Image } from 'react-native';
 
 import Title from 'components/Title';
 import back from 'assets/Back.png';
 import MainButton from 'components/MainButton';
-import { colors } from 'common/theme/constants';
+import styles from './styles';
 
 const IntermediateScreen = ({ navigation }) => {
   return (
@@ -25,29 +25,3 @@ const IntermediateScreen = ({ navigation }) => {
 };
 
 export default IntermediateScreen;
-
-const styles = StyleSheet.create({
-  wrapper: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    backgroundColor: '#E5E5E5',
-    paddingVertical: 75,
-  },
-  container: {
-    alignSelf: 'stretch',
-  },
-  arrowBack: {
-    alignSelf: 'flex-start',
-    marginLeft: 35,
-    padding: 15,
-  },
-  title: {
-    marginTop: 50,
-    alignSelf: 'center',
-    color: colors.navy,
-  },
-  button: {
-    marginBottom: 10,
-  },
-});
