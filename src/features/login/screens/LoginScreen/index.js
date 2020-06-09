@@ -1,9 +1,11 @@
 import React, { useCallback, useState } from 'react';
 import { Image, TouchableOpacity, ImageBackground, View, SafeAreaView } from 'react-native';
+import { useDispatch } from 'react-redux';
 
 import Title from 'components/Title';
 import TJTExtInput from 'components/TJTextInput';
 import MainButton from 'components/MainButton';
+import { setUser } from 'features/login/actions';
 import styles from './styles';
 import bgImage from 'assets/loginScreenBg.png';
 import back from 'assets/Back.png';
@@ -13,6 +15,8 @@ import passwordIcon from 'assets/passwordIcon.png';
 const LoginScreen = ({ navigation }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+
+  const dispatch = useDispatch();
 
   const handleGoBack = useCallback(() => {
     navigation.goBack();
@@ -32,6 +36,10 @@ const LoginScreen = ({ navigation }) => {
     [setPassword],
   );
 
+  const handleEnter = useCallback(() => {
+    dispatch(setUser({ email, password }));
+  }, [dispatch, email, password]);
+
   return (
     <>
       <ImageBackground source={bgImage} style={styles.wrapper}>
@@ -50,12 +58,14 @@ const LoginScreen = ({ navigation }) => {
               placeholder={'Пароль'}
               handleTextInput={handlePassword}
               icon={passwordIcon}
+              secureTextEntry={true}
             />
           </View>
           <MainButton
             title={'Войти'}
             additionalTextStyle={styles.button}
             incomeStyle={styles.buttonContainer}
+            handlePress={handleEnter}
           />
         </SafeAreaView>
       </ImageBackground>

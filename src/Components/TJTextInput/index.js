@@ -4,7 +4,7 @@ import { View, TextInput, Image } from 'react-native';
 import styles from './styles';
 import { colors } from 'src/common/theme/constants';
 
-const TJTextInput = ({ placeholder, handleTextInput, icon, additionalStyles }) => {
+const TJTextInput = ({ placeholder, handleTextInput, icon, additionalStyles, secureTextEntry }) => {
   return (
     <View style={styles.container}>
       <TextInput
@@ -12,6 +12,7 @@ const TJTextInput = ({ placeholder, handleTextInput, icon, additionalStyles }) =
         placeholder={placeholder}
         onChangeText={handleTextInput}
         placeholderTextColor={colors.navy}
+        secureTextEntry={secureTextEntry}
       />
       <Image source={icon} />
     </View>
