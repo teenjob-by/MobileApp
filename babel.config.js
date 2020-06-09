@@ -15,6 +15,7 @@ module.exports = {
           navigation: './src/navigation',
           services: './src/services',
           store: './src/store',
+          assets: './src/assets',
           __mocks__: './__mocks__',
         },
       },
