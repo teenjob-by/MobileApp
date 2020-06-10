@@ -1,6 +1,7 @@
 import { createStore, applyMiddleware, compose } from 'redux';
 import { rootReducer } from './rootReducer';
 import createSagaMiddleware from 'redux-saga';
+import { persistStore } from 'redux-persist';
 
 import rootSaga from './rootSaga';
 import Reactotron from '../../ReactotronConfig';
@@ -17,6 +18,8 @@ const store = createStore(
   ),
 );
 
+const persistor = persistStore(store);
+
 sagaMiddleware.run(rootSaga);
 
-export default store;
+export { store, persistor };

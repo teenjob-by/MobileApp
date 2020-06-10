@@ -1,76 +1,10 @@
-import React, { useCallback, useState } from 'react';
-import { Image, TouchableOpacity, ImageBackground, View, SafeAreaView } from 'react-native';
-import { useDispatch } from 'react-redux';
+import React from 'react';
+import { useSelector } from 'react-redux';
 
-import Title from 'components/Title';
-import TJTExtInput from 'components/TJTextInput';
-import MainButton from 'components/MainButton';
-import { setUser } from 'features/login/actions';
-import styles from './styles';
-import bgImage from 'assets/loginScreenBg.png';
-import back from 'assets/Back.png';
-import envelopeIcon from 'assets/envelopeIcon.png';
-import passwordIcon from 'assets/passwordIcon.png';
+import LoginScreen from './LoginScreen';
 
-const LoginScreen = ({ navigation }) => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+export default ({ navigation }) => {
+  const isLoggedIn = useSelector(state => state.user.isLoggedIn);
 
-  const dispatch = useDispatch();
-
-  const handleGoBack = useCallback(() => {
-    navigation.goBack();
-  }, [navigation]);
-
-  const handleEmail = useCallback(
-    text => {
-      setEmail(text);
-    },
-    [setEmail],
-  );
-
-  const handlePassword = useCallback(
-    text => {
-      setPassword(text);
-    },
-    [setPassword],
-  );
-
-  const handleEnter = useCallback(() => {
-    dispatch(setUser({ email, password }));
-  }, [dispatch, email, password]);
-
-  return (
-    <>
-      <ImageBackground source={bgImage} style={styles.wrapper}>
-        <SafeAreaView style={styles.container}>
-          <TouchableOpacity style={styles.arrowBack} onPress={handleGoBack}>
-            <Image source={back} />
-          </TouchableOpacity>
-          <Title incomeStyle={styles.title} />
-          <View styles={styles.form}>
-            <TJTExtInput
-              placeholder={'Электронный адрес'}
-              handleTextInput={handleEmail}
-              icon={envelopeIcon}
-            />
-            <TJTExtInput
-              placeholder={'Пароль'}
-              handleTextInput={handlePassword}
-              icon={passwordIcon}
-              secureTextEntry={true}
-            />
-          </View>
-          <MainButton
-            title={'Войти'}
-            additionalTextStyle={styles.button}
-            incomeStyle={styles.buttonContainer}
-            handlePress={handleEnter}
-          />
-        </SafeAreaView>
-      </ImageBackground>
-    </>
-  );
+  return <LoginScreen navigation={navigation} isLoggedIn={isLoggedIn} />;
 };
-
-export default LoginScreen;
