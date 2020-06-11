@@ -40,12 +40,6 @@ const LoginScreen = ({ navigation, isLoggedIn }) => {
     dispatch(setUser({ email: email.toLowerCase(), password }));
   }, [dispatch, email, password]);
 
-  useEffect(() => {
-    if (isLoggedIn) {
-      navigation.navigate('MAIN_SCREEN');
-    }
-  }, [isLoggedIn, navigation]);
-
   return (
     <>
       <ImageBackground source={bgImage} style={styles.wrapper}>
