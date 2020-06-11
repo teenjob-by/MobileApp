@@ -2,6 +2,10 @@ import { StyleSheet } from 'react-native';
 import { colors } from 'common/theme/constants';
 
 const styles = StyleSheet.create({
+  keyBoardView: {
+    flex: 1,
+    justifyContent: 'flex-end',
+  },
   wrapper: {
     flex: 1,
   },
