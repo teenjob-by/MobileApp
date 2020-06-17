@@ -1,10 +1,14 @@
 import React from 'react';
 import { View, Text } from 'react-native';
 
+import TabView from 'features/main/components/TabView';
+import styles from './styles';
+
 const FindJobScreen = () => {
   return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Text>Find Job Screen</Text>
+    <View style={styles.container}>
+      <Text style={styles.title}>Поиск работы</Text>
+      <TabView />
     </View>
   );
 };
