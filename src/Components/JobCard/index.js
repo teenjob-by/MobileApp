@@ -1,15 +1,22 @@
 import React from 'react';
-import { View, Text, TouchableWithoutFeedback } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+import { View, Text, TouchableWithoutFeedback, TouchableOpacity } from 'react-native';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 
 import { months } from './months';
 import styles from './styles';
 
 const JobCard = ({ title, description, city, publishDate, contacts }) => {
+  const navigation = useNavigation();
+
   const date = new Date(publishDate);
   const month = date.getMonth();
+
   return (
-    <View style={styles.container}>
+    <TouchableOpacity
+      onPress={() => navigation.navigate('JOB_DETAIL_SCREEN', { testProp: 'testProp' })}
+      style={styles.container}
+    >
       <View style={styles.header}>
         <View>
           <Text style={styles.title}>{title}</Text>
@@ -33,7 +40,7 @@ const JobCard = ({ title, description, city, publishDate, contacts }) => {
           <Text style={styles.contacts}>Контакты</Text>
         </TouchableWithoutFeedback>
       </View>
-    </View>
+    </TouchableOpacity>
   );
 };
 

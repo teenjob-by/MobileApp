@@ -1,25 +1,16 @@
-import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { View, Text } from 'react-native';
+import React from 'react';
+import { createStackNavigator } from '@react-navigation/stack';
 
-import TabView from 'features/main/components/TabView';
-import styles from './styles';
-import { fetchJobs } from 'features/main/actions';
+import FindJobScreen from './FindJobScreen';
+import JobDetailScreen from 'features/main/screens/JobDetailScreen';
 
-const FindJobScreen = () => {
-  const dispatch = useDispatch();
-  const token = useSelector(state => state.user.accessToken);
+const Stack = createStackNavigator();
 
-  useEffect(() => {
-    dispatch(fetchJobs(token));
-  });
-
+export default () => {
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Поиск работы</Text>
-      <TabView />
-    </View>
+    <Stack.Navigator headerMode={'none'}>
+      <Stack.Screen name='FIND_JOB_SCREEN' component={FindJobScreen} />
+      <Stack.Screen name='JOB_DETAIL_SCREEN' component={JobDetailScreen} />
+    </Stack.Navigator>
   );
 };
-
-export default FindJobScreen;

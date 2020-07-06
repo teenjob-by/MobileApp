@@ -6,7 +6,7 @@ const Title = ({ incomeStyle }) => {
     title: {
       fontSize: 72,
       fontWeight: 'bold',
-      color: '#fff',
+      color: '#ffffff',
       ...incomeStyle,
     },
   });

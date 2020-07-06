@@ -5,9 +5,11 @@ import { View, FlatList } from 'react-native';
 
 import JobCard from 'components/JobCard';
 import { refreshJobs } from 'features/main/actions';
+import styles from './styles';
 
 const Jobs = () => {
   const dispatch = useDispatch();
+
   const data = useSelector(state => state.jobs.data);
   const token = useSelector(state => state.user.accessToken);
 
@@ -29,10 +31,10 @@ const Jobs = () => {
   }, [dispatch, token]);
 
   return (
-    <View style={{ flex: 1 }}>
+    <View style={styles.cardContainer}>
       {data && (
         <FlatList
-          style={{ flex: 1 }}
+          style={styles.cardContainer}
           data={data}
           renderItem={renderItem}
           keyExtractor={item => item.id}
