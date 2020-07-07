@@ -1,16 +1,16 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { createStackNavigator } from '@react-navigation/stack';
 
-import TabView from 'features/main/components/TabView';
-import styles from './styles';
+import FindJobScreen from './FindJobScreen';
+import JobDetailScreen from 'features/main/screens/JobDetailScreen';
 
-const FindJobScreen = () => {
+const Stack = createStackNavigator();
+
+export default () => {
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Поиск работы</Text>
-      <TabView />
-    </View>
+    <Stack.Navigator headerMode={'none'}>
+      <Stack.Screen name='FIND_JOB_SCREEN' component={FindJobScreen} />
+      <Stack.Screen name='JOB_DETAIL_SCREEN' component={JobDetailScreen} />
+    </Stack.Navigator>
   );
 };
-
-export default FindJobScreen;

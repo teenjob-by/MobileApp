@@ -3,8 +3,8 @@ import { SafeAreaView } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 
-import FindJobScreen from 'src/features/main/screens/FindJobScreen';
-import SettingsScreen from 'src/features/main/screens/SettingsScreen';
+import MainJobScreen from 'features/main/screens/FindJobScreen';
+import SettingsScreen from 'features/main/screens/SettingsScreen';
 import { styles, tabBarOptions } from './styles';
 
 const Tabs = createBottomTabNavigator();
@@ -21,8 +21,8 @@ export default () => {
               <FontAwesome5 name='search' color={color} size={size} />
             ),
           }}
-          name='FIND_JOB_SCREEN'
-          component={FindJobScreen}
+          name='MAIN_JOB_SCREEN'
+          component={MainJobScreen}
         />
         <Tabs.Screen
           options={{

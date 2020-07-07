@@ -8,6 +8,7 @@ import {
   KeyboardAvoidingView,
   Platform,
   Keyboard,
+  TouchableWithoutFeedback,
 } from 'react-native';
 import { useDispatch } from 'react-redux';
 
@@ -20,9 +21,8 @@ import bgImage from 'assets/loginScreenBg.png';
 import back from 'assets/Back.png';
 import envelopeIcon from 'assets/envelopeIcon.png';
 import passwordIcon from 'assets/passwordIcon.png';
-import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
 
-const LoginScreen = ({ navigation, isLoggedIn }) => {
+const LoginScreen = ({ navigation }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -59,31 +59,33 @@ const LoginScreen = ({ navigation, isLoggedIn }) => {
             style={styles.keyBoardView}
           >
             <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
-              <TouchableOpacity style={styles.arrowBack} onPress={handleGoBack}>
-                <Image source={back} />
-              </TouchableOpacity>
-              <Title incomeStyle={styles.title} />
-              <View styles={styles.form}>
-                <TJTextInput
-                  value={email}
-                  placeholder={'Электронный адрес'}
-                  handleTextInput={handleEmail}
-                  icon={envelopeIcon}
-                />
-                <TJTextInput
-                  value={password}
-                  placeholder={'Пароль'}
-                  handleTextInput={handlePassword}
-                  icon={passwordIcon}
-                  secureTextEntry={true}
+              <View>
+                <TouchableOpacity style={styles.arrowBack} onPress={handleGoBack}>
+                  <Image source={back} />
+                </TouchableOpacity>
+                <Title incomeStyle={styles.title} />
+                <View styles={styles.form}>
+                  <TJTextInput
+                    value={email}
+                    placeholder={'Электронный адрес'}
+                    handleTextInput={handleEmail}
+                    icon={envelopeIcon}
+                  />
+                  <TJTextInput
+                    value={password}
+                    placeholder={'Пароль'}
+                    handleTextInput={handlePassword}
+                    icon={passwordIcon}
+                    secureTextEntry={true}
+                  />
+                </View>
+                <MainButton
+                  title={'Войти'}
+                  additionalTextStyle={styles.button}
+                  incomeStyle={styles.buttonContainer}
+                  handlePress={handleEnter}
                 />
               </View>
-              <MainButton
-                title={'Войти'}
-                additionalTextStyle={styles.button}
-                incomeStyle={styles.buttonContainer}
-                handlePress={handleEnter}
-              />
             </TouchableWithoutFeedback>
             <View style={styles.container} />
           </KeyboardAvoidingView>
