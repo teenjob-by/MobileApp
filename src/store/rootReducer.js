@@ -2,7 +2,7 @@ import { combineReducers } from 'redux';
 import AsyncStorage from '@react-native-community/async-storage';
 import { persistReducer } from 'redux-persist';
 
-import { setUser } from 'features/login/reducers';
+import userHandler from 'features/login/reducers';
 import { fetchJobs } from 'features/main/reducers';
 
 const persistConfig = {
@@ -12,6 +12,6 @@ const persistConfig = {
 };
 
 export const rootReducer = combineReducers({
-  user: persistReducer(persistConfig, setUser),
+  user: persistReducer(persistConfig, userHandler),
   jobs: persistReducer(persistConfig, fetchJobs),
 });

@@ -17,6 +17,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-between',
   },
+  errorContainer: {
+    borderColor: colors.errorRed,
+  },
   textInput: {
     flex: 1,
     color: colors.navy,
