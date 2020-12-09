@@ -5,4 +5,5 @@ export const colors = Object.freeze({
   ash: '#E5E5E5',
   gray: '#999999',
   blue: '#0A84FF',
+  errorRed: '#c44539',
 });

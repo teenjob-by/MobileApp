@@ -11,9 +11,10 @@ const TJTextInput = ({
   additionalStyles,
   secureTextEntry,
   value,
+  isError,
 }) => {
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, !isError && styles.errorContainer]}>
       <TextInput
         value={value}
         style={[styles.textInput, additionalStyles]}
