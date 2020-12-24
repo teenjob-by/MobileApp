@@ -11,12 +11,20 @@ const EntryScreen = ({ navigation }) => {
     navigation.navigate('INTERMEDIATE_SCREEN');
   }, [navigation]);
 
+  const handleNavigationRegister = useCallback(() => {
+    navigation.navigate('REGISTRATION_SCREEN');
+  }, [navigation]);
+
   return (
     <>
       <ImageBackground source={bgImage} style={styles.wrapper}>
         <Title />
         <View>
-          <MainButton incomeStyle={styles.button} title={'Я новый пользователь'} />
+          <MainButton
+            incomeStyle={styles.button}
+            title={'Я новый пользователь'}
+            handlePress={handleNavigationRegister}
+          />
           <MainButton
             incomeStyle={styles.button}
             title={'У меня есть аккаунт'}

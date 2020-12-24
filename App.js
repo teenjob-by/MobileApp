@@ -9,6 +9,7 @@ import IntermediateScreen from 'features/entry/screens/IntermediateScreen';
 import LoginScreen from 'features/login/screens/LoginScreen';
 import LoaderComponent from 'components/LoaderComponent';
 import MainScreen from 'features/main';
+import RegistrationScreen from 'features/registration';
 import { persistor } from 'store';
 
 const Stack = createStackNavigator();
@@ -21,6 +22,7 @@ const App = () => {
         {!isLoggedIn ? (
           <Stack.Navigator headerMode={'none'}>
             <Stack.Screen name='ENTRY_SCREEN' component={EntryScreen} />
+            <Stack.Screen name='REGISTRATION_SCREEN' component={RegistrationScreen} />
             <Stack.Screen name='INTERMEDIATE_SCREEN' component={IntermediateScreen} />
             <Stack.Screen name='LOGIN_SCREEN' component={LoginScreen} />
           </Stack.Navigator>
